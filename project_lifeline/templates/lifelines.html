@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boston Lifelines</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+<body>
+    <div class="form2">
+        <table style="width:100%">
+            <tr height=5></tr>
+            <tr>
+                <th width="1%"></th>
+                <th width="5%">
+                  <button onclick="goBack()" type="goback">Go Back</button>
+                </th>
+                <th width="63%"></th>
+                <th width="15%">
+                    <img src="../static/GeneralAssembly.gif" height=30></img>
+                </th>
+                <th width="15%">
+                    <img src="../static/ntl-color-logo.jpg" height=30></img>
+                </th>
+                <th width="1%"></th>
+            </tr>
+            <tr height=5></tr>
+        </table>
+    </div>
+  <center>
+        <div class="form3">
+          <h1>{{lifeline}} lifelines for Zipcode {{zipcode}}</h1>
+          <h2>List of Businesses in {{zipcode}} </h2>      
+        </div>
+    <div>
+      {% for table in tables %}
+                  {{ table|safe }}
+      {% endfor %}
+    </div>
+  </center>
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
