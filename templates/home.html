@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Boston Lifelines</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+
+    <body>
+        <div class="form1">
+            <table style="width:100%">
+                <tr height=5></tr>
+                <tr>
+                    <td width="1%"></td>
+                    <td width="15%">
+                        <img src="../static/GeneralAssembly.gif" height=30 ></img>
+                    </td>
+                    <td width="1%"></td>
+                    <td width="15%">
+                        <img src="../static/ntl-color-logo.jpg" height=30></img>
+                    </td>
+                    <td width="33%"></td>
+                    <td width="35%">
+                        <form method="POST" action="/send">
+                            <label for="zipcode">Zip code in detail :</label>
+                            <input type="string" name="zipcode">
+                            <input class="btn-zipcode" type="submit" value="submit">
+                        </form>
+                    </td>
+                </tr>
+              </table>
+        </div>
+        <div>
+            <table width="100%">
+                <tr height=20>                  
+                    <td width="15%" bgcolor="blue"><font color="white">&nbsp COMMUNICATIONS</font></td>                    
+                    <td width="8%" bgcolor="red"><font color="white">&nbspENERGY</font></td>                    
+                    <td width="16%" bgcolor="black"><font color="white">&nbspFOOD WATER SHELTER</font></td>                    
+                    <td width="16%" bgcolor="yellow"><font color="black">&nbspHAZERDOUS MATERIAL</font></td>                    
+                    <td width="15%" bgcolor="green"><font color="white">&nbspHEALTH & MEDICAL</font></td>                    
+                    <td width="15%" bgcolor="plum"><font color="white">&nbspSAFETY & SECURITY</font></td>                    
+                    <td width="15%" bgcolor="purple"><font color="white">&nbspTRANSPORTATION</font></td>
+                </tr>
+            </table>
+        </div>
+        <div class="bos_map"> 
+            {% include "map_boston.html" %}
+        </div>
+    </body>
+
+</html>

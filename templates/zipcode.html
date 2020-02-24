@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Boston Lifelines</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+
+    <body>
+        <div class="form2">
+            <table style="width:100%">
+                <tr height=5></tr>
+                <tr>
+                    <th width="1%"></th>
+                    <th width="5%">
+                        <form method="GET" action="/send">
+                            <label for="back"></label>
+                            <input class="btn-back" type="submit" value="back" name="back">   
+                        </form>
+                    </th>
+                    <th width="63%"></th>
+                    <th width="15%">
+                        <img src="../static/GeneralAssembly.gif" height=30></img>
+                    </th>
+                    <th width="15%">
+                        <img src="../static/ntl-color-logo.jpg" height=30></img>
+                    </th>
+                    <th width="1%"></th>
+                </tr>
+                <tr height=5></tr>
+            </table>
+        </div>
+        <div class="home">
+            <table width="100%" bgcolor="#e6e6ff">
+                <tr>
+                    <td width="7%"></td>
+                    <td width="40%">
+                        <table>
+                            <tr>
+                                <td width="20%"><font size=6 color="white" face="Helvetica"><b>Zip code</b></font></td>
+                                <td width="20%"><font size=6 color="white" face="Helvetica">{{zipcode}}</font></td>
+                            </tr>
+                            <tr><td>...</td><td></td></tr>
+                            <tr>
+                                <td width="20%"><font size=6 color="white" face="Helvetica"><b>Population</b></font></td>
+                                <td width="20%"><font size=6 color="white" face="Helvetica">{{population}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="20%"><font size=6 color="white" face="Helvetica"><b>Mean Home Price</b></font></td>
+                                <td width="20%"><font size=6 color="white" face="Helvetica">{{mean_home_price}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="20%"><font size=6 color="white" face="Helvetica"><b>Total Lifelines</b></font></td>
+                                <td width="20%"><font size=6 color="white" face="Helvetica">{{total_lifelines}}</font></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="6%"></td>
+                    <td width="40%">                        
+                        <table>
+                            <tr><font size=6 color="white" face="Helvetica"><b>Lifelines</b></font></tr>
+                            <tr><td>...</td><td></td></tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Communications</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{communications}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Energy</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{energy}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Food Water and Shelter</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{food}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Hazardous Material</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{hazmat}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Health and Medical</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{health}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Safety and Security</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{safety}}</font></td>
+                            </tr>
+                            <tr>
+                                <td width="32%"><font size=5 color="white" face="Helvetica"><b>Transportation</b></font></td>
+                                <td width="8%"><font size=5 color="white" face="Helvetica">{{transportation}}</font></td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="7%"></td>
+                </tr>
+            </table>
+        </font>
+        </div>
+        <div>
+        <center><p>{{error_message}}</p>
+            <form action="/lifelines">
+            <h3>
+                <label for=lifeline>Enter lifeline :&nbsp&nbsp&nbsp</label>
+                    <input type = 'string', name=lifeline style="width: 500px; height: 30px; background-color:gainsboro;">
+                <button type="submit" style="width: 75px; height: 40px; font-size: 15px; color:dimgray; background-color:#4CAF50;">
+                    <font color="white">Submit</font>
+                </button>
+            </h3>
+            </form>
+        </center>
+        </div>
+        <div>
+            <table width="100%">
+                <tr height=20>                  
+                    <td width="15%" bgcolor="blue"><font color="white">&nbsp COMMUNICATIONS</font></td>                    
+                    <td width="8%" bgcolor="red"><font color="white">&nbspENERGY</font></td>                    
+                    <td width="16%" bgcolor="black"><font color="white">&nbspFOOD WATER SHELTER</font></td>                    
+                    <td width="16%" bgcolor="yellow"><font color="black">&nbspHAZERDOUS MATERIAL</font></td>                    
+                    <td width="15%" bgcolor="green"><font color="white">&nbspHEALTH & MEDICAL</font></td>                    
+                    <td width="15%" bgcolor="plum"><font color="white">&nbspSAFETY & SECURITY</font></td>                    
+                    <td width="15%" bgcolor="purple"><font color="white">&nbspTRANSPORTATION</font></td>
+                </tr>
+            </table>
+        </div>
+        <div class="map_test">
+            {% include "map_zipcode.html" %}
+        </div>
+    </body>
+
+</html>
